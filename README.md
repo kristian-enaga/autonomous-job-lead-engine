@@ -16,7 +16,7 @@ An enterprise-grade n8n intelligence engine built to eliminate hours of manual j
 
 ![Workflow Architecture](./Autonomous%20Job%20Intelligence%20%26%20High-Intent%20Outreach%20Engine.png)
 
-🎬 *Video Demo:* Watch the full architecture, AI audit evaluation, and Telegram HITL decision gate walkthrough on [Loom](https://www.loom.com).
+*Video Demo:* Watch the full architecture, AI audit evaluation, and Telegram HITL decision gate walkthrough on [Loom](https://www.loom.com/share/7792580657284a58a7e1dabf99365087).
 
 ---
 
