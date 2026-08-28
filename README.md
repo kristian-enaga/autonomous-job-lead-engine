@@ -16,7 +16,9 @@ An enterprise-grade n8n intelligence engine built to eliminate hours of manual j
 
 ![Workflow Architecture](./Autonomous%20Job%20Intelligence%20%26%20High-Intent%20Outreach%20Engine.png)
 
-*Video Demo:* Watch the full architecture, AI audit evaluation, and Telegram HITL decision gate walkthrough on [Loom](https://www.loom.com/share/7792580657284a58a7e1dabf99365087).
+### 🎥 System Walkthrough & Live Demo
+[![Watch the Architecture & HITL Demo](https://img.shields.io/badge/Watch_Full_Architecture_Demo-Loom-0055FF?style=for-the-badge&logo=loom&logoColor=white)](https://www.loom.com/share/7792580657284a58a7e1dabf99365087)
+*Watch the complete 4-minute breakdown covering SerpAPI ingestion, Gemini/Groq failover, Zod schema validation, and 1-click mobile Telegram HITL approvals.*
 
 ---
 
