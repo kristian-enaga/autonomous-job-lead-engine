@@ -1,8 +1,8 @@
-# ⚡ Autonomous Job Intelligence & High-Intent Outreach Engine
+# ⚡ Autonomous Enterprise Market Intelligence & B2B Lead Waterfall Engine
 
-Production-grade n8n pipeline that autonomously ingests target job listings via SerpAPI precision search queries, sanitizes scraped web payloads, evaluates opportunities using Google Gemini AI (with Groq instant failover), enforces deterministic Zod schema validation, and dispatches real-time actionable briefs via Telegram HITL webhooks.
+Production-grade n8n pipeline that autonomously ingests target market signals and prospect accounts via SerpAPI precision search queries, sanitizes scraped web payloads, evaluates opportunities using Google Gemini AI (with Groq instant failover), enforces deterministic Zod schema validation, and dispatches real-time actionable briefs via Telegram HITL webhooks.
 
-- 🤖 Automated 24/7 opportunity sourcing using SerpAPI & targeted search dorks across ATS portals
+- 🤖 Automated 24/7 account discovery using SerpAPI & targeted search dorks across enterprise portals
 - ✂️ Token cost optimization via custom RegEx HTML sanitizer (up to 70% cost reduction)
 - 🛡️ Zero data loss architecture with SQL deduplication, Zod schema gates, and Dead Letter Queue (DLQ)
 - 🚨 Global incident resilience with 1-click execution recovery links via Slack & Gmail alerts
@@ -12,19 +12,19 @@ Production-grade n8n pipeline that autonomously ingests target job listings via 
 
 ---
 
-An enterprise-grade n8n intelligence engine built to eliminate hours of manual job sourcing, eliminate malformed AI outputs, and provide instant mobile decision-making with strict production resilience.
+An enterprise-grade n8n intelligence engine built to eliminate hours of manual account research, eliminate malformed AI outputs, and provide instant mobile decision-making with strict production resilience.
 
 ![Workflow Architecture](./Autonomous%20Job%20Intelligence%20%26%20High-Intent%20Outreach%20Engine.png)
 
 ### 🎥 System Walkthrough & Live Demo
 [![Watch the Architecture & HITL Demo](https://img.shields.io/badge/Watch_Full_Architecture_Demo-Loom-0055FF?style=for-the-badge&logo=loom&logoColor=white)](https://www.loom.com/share/7792580657284a58a7e1dabf99365087)
-*Watch the complete 4-minute breakdown covering SerpAPI ingestion, Gemini/Groq failover, Zod schema validation, and 1-click mobile Telegram HITL approvals.*
+<br>*Watch the complete 4-minute breakdown covering SerpAPI ingestion, Gemini/Groq failover, Zod schema validation, and 1-click mobile Telegram HITL approvals.*
 
 ---
 
 ## 🎯 Business Problem
 
-Founders, agency owners, and independent consultants lose over **10+ hours per week** manually browsing job boards, reading through bloated job descriptions, and writing custom pitches. Standard scraper tools overload databases with expired 404 links, duplicate listings, and unformatted HTML boilerplate—wasting LLM tokens and cluttering CRM pipelines with junk data.
+Founders, agency owners, and GTM teams lose over **10+ hours per week** manually browsing target career boards, reading through bloated company descriptions, and writing custom outreach. Standard scraper tools overload databases with expired 404 links, duplicate listings, and unformatted HTML boilerplate—wasting LLM tokens and cluttering CRM pipelines with junk data.
 
 ---
 
@@ -32,7 +32,7 @@ Founders, agency owners, and independent consultants lose over **10+ hours per w
 
 This production-grade n8n engine operates as an autonomous intelligence agent across 6 distinct architectural phases:
 
-1. **Target Sourcing & Ingestion:** Cron schedule triggers precision SerpAPI search queries and ATS dork strings to extract raw opportunity links continuously.
+1. **Target Sourcing & Ingestion:** Cron schedule triggers precision SerpAPI search queries and target dork strings to extract raw opportunity links continuously.
 2. **Pre-Flight Verification & Deduplication:** Filters out dead/closed 404 listing pages and queries Supabase/PostgreSQL to prevent duplicate scraping and preserve bandwidth.
 3. **Token Optimization & Resilient AI Audit:** Strips HTML/script boilerplate using custom JavaScript RegEx, then routes sanitized text through Google Gemini AI (with Groq `llama-3.3-70b` failover on HTTP 429 rate limits) to evaluate bottlenecks and draft a tailored 3-sentence ROI pitch.
 4. **Deterministic Schema Gate & CRM Draft Sync:** Validates raw LLM JSON outputs using strict Zod schemas before persisting data into Supabase draft records, instantly isolating malformed responses to a Dead Letter Queue (DLQ).
@@ -67,7 +67,6 @@ Here is the verified execution log confirming successful end-to-end data ingesti
 | Slack Incident Alert | Gmail Recovery Alert |
 | :--- | :--- |
 | ![Slack Alert](./Global-error-slack.png) | ![Gmail Alert](./Global-error-gmail.png) |
-
 *Figure 3: Automatic incident alerts containing direct 1-click execution recovery links for instant debugging.*
 
 ---
@@ -76,7 +75,7 @@ Here is the verified execution log confirming successful end-to-end data ingesti
 
 ### Phase 1: Target Sourcing & Ingestion
 - **Schedule Trigger (Cron):** Executes precision search routines on an automated time schedule.
-- **SerpAPI / Google Search (ATS Dorks):** Queries SerpAPI using targeted Google search strings across ATS portals (Greenhouse, Lever, Workable, Ashby) to extract structured, active opportunity links.
+- **SerpAPI / Google Search (Target Dorks):** Queries SerpAPI using targeted search strings across high-value portals to extract structured, active target links.
 - **Split Out:** Breaks incoming search arrays into individual item streams for granular verification.
 
 ### Phase 2: Pre-Flight Verification & Deduplication
@@ -96,32 +95,10 @@ Here is the verified execution log confirming successful end-to-end data ingesti
 - **Supabase Lead Draft Sync:** Persists validated leads into Supabase with a status of `Pending Approval`.
 
 ### Phase 5: Mobile Dispatch & HITL Decision Gate
-- **Send Telegram Approval Alert:** Dispatches formatted executive summary to Telegram with inline "Approve" / "Reject" buttons.
-- **Wait (HITL Pause):** Freezes execution state in database storage at zero compute cost until a mobile webhook callback is received.
-- **Callback Router:** Evaluates inline button tap data (`approved` vs `rejected`).
-- **Supabase Status Update:** Updates lead state in Supabase to `🚀 Applied` or `❌ Rejected`.
+- **Telegram Webhook Dispatch:** Formats structured markdown briefs with inline action buttons (`Approve` / `Reject`).
+- **Send and Wait (HITL):** Freezes workflow state at zero compute cost until the mobile operator responds.
+- **Router (Approval Decision):** Evaluates callback payload to branch execution streams based on human validation.
 
-### Phase 6: Dead Letter Queue (DLQ) & Real-time Incident Alerting
-- **Engine Error Trigger:** Automatically captures unhandled exceptions, downstream API timeouts, or rate limits across the entire pipeline.
-- **Global Error Alerts (Slack & Gmail):** Dispatches rich incident notifications featuring node error details, timestamp logs, and a direct **1-Click Execution Recovery URL** (`https://n8n.instance/execution/{id}`). Engineers can click the link from Slack or Gmail to open the exact failed run in n8n for instant triage and manual re-execution.
-
----
-
-## 🛠️ Tech Stack & Integrations
-
-- **Automation Engine:** n8n (Self-Hosted / Production)
-- **Primary Search Scraper:** SerpAPI (Google Search API)
-- **Primary AI Model:** Google Gemini API (Structured Output)
-- **Failover AI Model:** Groq API (`llama-3.3-70b-versatile`)
-- **Database Layer:** Supabase / PostgreSQL
-- **Mobile Communications:** Telegram Business API (Webhooks & Inline Keyboards)
-- **Incident Alerting:** Slack API + Gmail API (1-Click Recovery URLs)
-- **Validation Standard:** Zod / Custom JavaScript Schema Gate
-
----
-
-## 📈 Engineering Roadmap & Milestone
-
-- **Roadmap Phase:** Phase 2 (Automation Engineering)
-- **Sprint Tracker:** Sprint 5 — Webhooks, Human-in-the-Loop (HITL) Approvals & AI Agent Fundamentals
-- **Build Milestone:** Completed (Day 72/153)
+### Phase 6: Global Incident Resilience & Error Alerts
+- **Global Error Trigger:** Catches unhandled runtime exceptions, HTTP 429 rate limits, or schema crashes across any node.
+- **Incident Dispatch (Slack & Gmail):** Sends rich error notifications containing direct 1-click execution recovery links for rapid debugging.
