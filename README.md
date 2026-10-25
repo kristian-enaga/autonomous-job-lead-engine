@@ -1,4 +1,4 @@
-# ⚡ Autonomous Enterprise Market Intelligence & B2B Lead Waterfall Engine
+# ⚡ Autonomous Market Intelligence & B2B Lead Waterfall Engine
 
 Production-grade n8n pipeline that autonomously ingests target market signals and prospect accounts via SerpAPI precision search queries, sanitizes scraped web payloads, evaluates opportunities using Google Gemini AI (with Groq instant failover), enforces deterministic Zod schema validation, and dispatches real-time actionable briefs via Telegram HITL webhooks.
 
